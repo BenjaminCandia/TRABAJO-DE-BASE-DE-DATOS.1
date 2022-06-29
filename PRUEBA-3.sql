@@ -1,4 +1,4 @@
-CREATE TABLE afi(
+CREATE TABLE afiliados(
     id_afiliado                         NUMBER NOT NULL,
     rut                                 VARCHAR2(250) NOT NULL, 
     primer_nombre                       VARCHAR2(250) NOT NULL,
@@ -190,3 +190,31 @@ CREATE TABLE tipo_beneficio(
     id_tipo_beneficio           NUMBER NOT NULL,
     nombre                      VARCHAR2(250) NOT NULL                 
 );
+ALTER TABLE afiliados ADD CONSTRAINT afiliados_PK PRIMARY KEY (id_afiliado);
+ALTER TABLE pagos ADD CONSTRAINT pagos_PK PRIMARY KEY (id_pagos);
+ALTER TABLE tipo_pago ADD CONSTRAINT tipo_pago_PK PRIMARY KEY (id_pago);
+ALTER TABLE forma_pago ADD CONSTRAINT forma_pago_PK PRIMARY KEY (id_forma_pago);
+ALTER TABLE banco ADD CONSTRAINT banco_PK PRIMARY KEY (id_banco);
+ALTER TABLE cheque ADD CONSTRAINT cheque_PK PRIMARY KEY (id_cheque);
+ALTER TABLE nacionalidad ADD CONSTRAINT nacionalidad_PK PRIMARY KEY (id_nacionalidad);
+ALTER TABLE tipo_discapacidad ADD CONSTRAINT tipo_discapacidad_PK PRIMARY KEY (id_tipo_de_discapacidad);
+ALTER TABLE telefono_cliente ADD CONSTRAINT telefono_cliente_PK PRIMARY KEY (id_telefono_cliente);
+ALTER TABLE telefono ADD CONSTRAINT telefono_PK PRIMARY KEY (id_telefono);
+ALTER TABLE tipo_telefono ADD CONSTRAINT tipo_telefono_PK PRIMARY KEY (id_numero);
+ALTER TABLE beneficio ADD CONSTRAINT beneficio_PK PRIMARY KEY (id_beneficio);
+ALTER TABLE tipo_beneficio ADD CONSTRAINT tipo_beneficio_PK PRIMARY KEY (id_tipo_beneficio);
+ALTER TABLE descuento ADD CONSTRAINT descuento_PK PRIMARY KEY (id_descuentos);
+ALTER TABLE tipo_transporte ADD CONSTRAINT tipo_transporte_PK PRIMARY KEY (id_tipo_transporte);
+ALTER TABLE vehiculo ADD CONSTRAINT vehiculo_PK PRIMARY KEY (id_vehiculo, afiliados_id_afiliado);
+ALTER TABLE aseguradora ADD CONSTRAINT aseguradora_PK PRIMARY KEY (id_aseguradora);
+ALTER TABLE aseguradora_empresa ADD CONSTRAINT aseguradora_empresa_PK PRIMARY KEY (id_aseguradora_empresa);
+ALTER TABLE empresa ADD CONSTRAINT empresa_PK PRIMARY KEY (id_empresa);
+ALTER TABLE sindicato ADD CONSTRAINT sindicato_PK PRIMARY KEY (id_sindicato);
+ALTER TABLE comuna ADD CONSTRAINT comuna_PK PRIMARY KEY (id_comuna);
+ALTER TABLE provincia ADD CONSTRAINT provincia_PK PRIMARY KEY (id_provincia);
+ALTER TABLE region ADD CONSTRAINT region_PK PRIMARY KEY (id_region);
+ALTER TABLE solicitud_ingreso ADD CONSTRAINT solicitud_ingreso_PK PRIMARY KEY (id_solicitud);
+ALTER TABLE estado_postulacion ADD CONSTRAINT estado_postulacion_PK PRIMARY KEY (id_postulacion);
+ALTER TABLE futuro_afiliado ADD CONSTRAINT futuro_afiliado_PK PRIMARY KEY (id_futuro_afiliado);
+ALTER TABLE tipo_patentesco ADD CONSTRAINT tipo_patentesco_PK PRIMARY KEY (id_tipo_parentesco);
+ALTER TABLE estado_civil ADD CONSTRAINT estado_civil_PK PRIMARY KEY (id_estado_civil);
