@@ -1,21 +1,21 @@
 CREATE TABLE afiliados(
-    id_afiliado                         NUMBER NOT NULL,
-    rut                                 VARCHAR2(250) NOT NULL, 
-    primer_nombre                       VARCHAR2(250) NOT NULL,
-    segundo_nombre                      VARCHAR2(250),
-    apellido_paterno                    VARCHAR2(250) NOT NULL,
-    apellido_materno                    VARCHAR2(250),
-    fecha_nacimiento                    DATE NOT NULL, 
-    pretension_sueldo                   NUMBER NOT NULL,
-    direccion                           VARCHAR2(250) NOT NULL,
-    genero                              VARCHAR2(250) NOT NULL,
-    discapacidad                        VARCHAR2(250) NOT NULL,
-    correo_electronico                  VARCHAR2(250) NOT NULL,
-    curriculum_vitae                    VARCHAR2(250) NOT NULL, 
-    numero_carnet_socio                 NUMBER NOT NULL,
-    estado_postulacion_id_postulacion   NUMBER NOT NULL,
-    comuna_id_comuna                    NUMBER NOT NULL,
-    solicitud_ingreso_id_solicitud      NUMBER NOT NULL
+    id_afiliado                                 NUMBER NOT NULL,
+    rut                                         VARCHAR2(250) NOT NULL, 
+    primer_nombre                               VARCHAR2(250) NOT NULL,
+    segundo_nombre                              VARCHAR2(250),
+    apellido_paterno                            VARCHAR2(250) NOT NULL,
+    apellido_materno                            VARCHAR2(250),
+    fecha_nacimiento                            DATE NOT NULL, 
+    pretension_sueldo                           NUMBER NOT NULL,
+    direccion                                   VARCHAR2(250) NOT NULL,
+    genero                                      VARCHAR2(250) NOT NULL,
+    discapacidad                                VARCHAR2(250) NOT NULL,
+    correo_electronico                          VARCHAR2(250) NOT NULL,
+    curriculum_vitae                            VARCHAR2(250) NOT NULL, 
+    comuna_id_comuna                            NUMBER NOT NULL,
+    solicitud_ingreso_id_solicitud              NUMBER,
+    nacionalidad_id_nacionalidad                NUMBER NOT NULL,
+    tipo_discapacidad_id_tipo_discapacidad      NUMBER NOT NULL
 );
 
 CREATE TABLE nacionalidad(
@@ -31,7 +31,6 @@ CREATE TABLE tipo_discapacidad(
 
 CREATE TABLE telefono_cliente(
     id_telefono_cliente    NUMBER NOT NULL, 
-    numero_cliente         VARCHAR2(250) NOT NULL,
     telefono_id_telefono   NUMBER NOT NULL,
     afiliados_id_afiliado  NUMBER NOT NULL
 );
@@ -154,9 +153,10 @@ CREATE TABLE aseguradora(
     rut                         VARCHAR2(250) NOT NULL
 );
 CREATE TABLE aseguradora_empresa(
-    id_aseguradora_empresa  NUMBER NOT NULL,
-    nombre                  VARCHAR2(250) NOT NULL,
-    direccion               VARCHAR2(250) NOT NULL
+    id_aseguradora_empresa          NUMBER NOT NULL,
+    nombre                          VARCHAR2(250) NOT NULL,
+    empresa_id_empresa              NUMBER NOT NULL,
+    aseguradora_id_aseguradora      NUMBER NOT NULL
 );
 
 CREATE TABLE vehiculo(
@@ -231,13 +231,13 @@ ALTER TABLE afiliados ADD CONSTRAINT afiliados_nacionalidad_id_FK FOREIGN KEY (n
 ALTER TABLE afiliados ADD CONSTRAINT afiliados_tipo_discapacidad_id_FK FOREIGN KEY (tipo_discapacidad_id_tipo_discapacidad) REFERENCES tipo_discapacidad (id_tipo_de_discapacidad);
 ALTER TABLE afiliados ADD CONSTRAINT afiliados_solicitud_ingreso_id_FK FOREIGN KEY (solicitud_ingreso_id_solicitud) REFERENCES solicitud_ingreso (id_solicitud);
 ALTER TABLE telefono_cliente ADD CONSTRAINT telefono_cliente_telefono_id_FK FOREIGN key (telefono_id_telefono) REFERENCES telefono (id_telefono);
-ALTER TABLE telefono_cliente ADD CONSTRAINT telefono_cliente_afiliado_id_FK FOREIGN KEY (afiliados_id_afiliado) REFERENCES afiliado (id_afiliado);
+ALTER TABLE telefono_cliente ADD CONSTRAINT telefono_cliente_afiliado_id_FK FOREIGN KEY (afiliados_id_afiliado) REFERENCES afiliados (id_afiliado);
 ALTER TABLE telefono ADD CONSTRAINT telefono_tipo_telefono_id_FK FOREIGN KEY (tipo_telefono_id_numero) REFERENCES tipo_telefono (id_numero);
 ALTER TABLE pagos ADD CONSTRAINT pagos_cheque_id_FK FOREIGN KEY (cheque_id_cheque) REFERENCES cheque (id_cheque);
 ALTER TABLE pagos ADD CONSTRAINT pagos_banco_id_FK FOREIGN KEY (banco_id_banco) REFERENCES banco (id_banco);
 ALTER TABLE pagos ADD CONSTRAINT pagos_tipo_pago_id_FK FOREIGN KEY (tipo_pago_id_pago) REFERENCES tipo_pago (id_pago);
 ALTER TABLE pagos ADD CONSTRAINT pagos_forma_pago_id_FK FOREIGN KEY (forma_pago_id_forma_pago) REFERENCES forma_pago (id_forma_pago);
-ALTER TABLE pagos ADD CONSTRAINT pagos_afiliados_id_FK FOREIGN KEY (afiliados_id_afiliado) REFERENCES afiliado (id_afiliado);
+ALTER TABLE pagos ADD CONSTRAINT pagos_afiliados_id_FK FOREIGN KEY (afiliados_id_afiliado) REFERENCES afiliados (id_afiliado);
 ALTER TABLE beneficio ADD CONSTRAINT beneficio_descuento_id_FK FOREIGN KEY (descuento_id_descuentos) REFERENCES descuento (id_descuentos);
 ALTER TABLE beneficio ADD CONSTRAINT beneficio_tipo_beneficio_id_FK FOREIGN KEY (tipo_beneficio_id_tipo_beneficio) REFERENCES tipo_beneficio (id_tipo_beneficio);
 ALTER TABLE beneficio ADD CONSTRAINT beneficio_afiliados_id_FK FOREIGN KEY (afiliados_id_afiliado) REFERENCES afiliados (id_afiliado);
@@ -257,8 +257,8 @@ ALTER TABLE aseguradora_empresa ADD CONSTRAINT aseguradora_empresa_empresa_id_FK
 ALTER TABLE aseguradora_empresa ADD CONSTRAINT aseguradora_empresa_aseguradora_id_FK FOREIGN KEY (aseguradora_id_aseguradora) REFERENCES aseguradora (id_aseguradora);
 
 ALTER SESSION SET NLS_DATE_FORMAT= 'DD/MM/YYYY'
-INSERT INTO solicitud_ingreso VALUES (1, '03/04/2021');
-INSERT INTO solicitud_ingreso VALUES (2, '07/09/2022');
+INSERT INTO solicitud_ingreso VALUES (1,'03/04/2021');
+INSERT INTO solicitud_ingreso VALUES (2,'07/09/2022');
 INSERT INTO region VALUES (1, 'METROPOLITANA DE SANTIAGO');
 INSERT INTO region VALUES (2, 'ARICA Y PARINACOTA');
 INSERT INTO region VALUES (3, 'TARAPACA');
