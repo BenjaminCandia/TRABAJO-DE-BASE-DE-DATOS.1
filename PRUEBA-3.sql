@@ -258,32 +258,32 @@ ALTER TABLE aseguradora_empresa ADD CONSTRAINT aseguradora_empresa_aseguradora_i
 
 ALTER SESSION SET NLS_DATE_FORMAT= 'DD/MM/YYYY'
 INSERT INTO solicitud_ingreso VALUES (1,'03/04/2021');
-INSERT INTO solicitud_ingreso VALUES (2,'07/09/2022');
-SELECT * FROM solicitud_ingreso;
 INSERT INTO region VALUES (1, 'METROPOLITANA DE SANTIAGO');
-INSERT INTO region VALUES (2, 'ARICA Y PARINACOTA');
-INSERT INTO region VALUES (3, 'TARAPACA');
 INSERT INTO provincia VALUES (1, 'MAGALLANES')
-INSERT INTO provincia VALUES (2, 'VALDIVIA')
-INSERT INTO provincia VALUES (3, 'IQUIQUE')
 INSERT INTO comuna VALUES (1, 'LA FLORIDA');
-INSERT INTO comuna VALUES (2, 'PUENTE ALTO');
-INSERT INTO comuna VALUES (3, 'LA GRANJA');
 INSERT INTO nacionalidad VALUES (1,'CHILENA/O');
-INSERT INTO nacionalidad VALUES (2,'MEXICANA/O');
-INSERT INTO nacionalidad VALUES (3,'VENEZOLANA/O');
 INSERT INTO discapacidad VALUES ('')
+INSERT INTO tipo_discapacidad
 INSERT INTO vehiculo VALUES (1,'CHEVROLET', 'CAMARO', '1234','AZUL', 'AUTO', '1111','11111','01');
-INSERT INTO vehiculo VALUES (2, 'BMW', 'sedan', '5678', 'verde', 'AUTO', '2222', '22222', '02');
-INSERT INTO vehiculo VALUES (3, 'SUZUKI', 'APV', '9101','naranja', 'AUTO', '3333','33333', '03' );
 INSERT INTO tipo_pago VALUES (1,'EFECTIVO');
-INSERT INTO tipo_pago VALUES (2,'TARJETA');
-INSERT INTO tipo_pago VALUES (3,'CHEQUE');
-INSERT INTO tipo_pago VALUES (4, 'TRANSFERENCIA');
 INSERT INTO banco VALUES (1, 'BANCO ESTADO', '');
 INSERT INTO forma_pago VALUES (1, 'PAGO INICIAL')
-INSERT INTO forma_pago VALUES (2, 'PAGO MENSUAL')
 INSERT INTO pagos VALUES ('001', '07/04/2021', 'SALDADO', '', 1 , 2, 1,'01');
-INSERT INTO pagos VALUES ('002', '09/09/2022', 'SALDADO', '', 1 , 4, 2, '02' );
 INSERT INTO afiliados VALUES ('01', '0000', 'Alan', '', 'Brito', '', '07/04/1990', '$2000', 'calle siempre viva #1234', 'M', '', 'alan@b.cl', 'curriculum here', '0909', 1, 1, 1 )
-INSERT INTO afiliados VALUES ('02', '8888', 'Nami', '', 'gyu', '', '05/04/1998', '$4000', 'calle siempre viva #1298', 'F', '', 'nami@g.cl', 'curriculum here', '0909', 2, 1, 2 )
+INSERT INTO cheque VALUES (1, 1, 'banco de chile')
+INSERT INTO estado_civil VALUES (1, 'soltero xd')
+INSERT INTO tipo_parentesco VALUES (1, 'hijo')
+INSERT INTO futuro_afiliado VALUES (1, '')
+INSERT INTO estado_postulacion VALUES (1,)
+INSERT INTO sindicato VALUES (1,)
+INSERT INTO empresa VALUES (1,)
+INSERT INTO aseguradora VALUES (1,)
+INSERT INTO aseguradora_empresa VALUES (1,)
+INSERT INTO tipo_transporte VALUES (1,)
+INSERT INTO descuento VALUES (1,)
+INSERT INTO tipo_beneficio VALUES (1,)
+INSERT INTO beneficio VALUES (1,)
+INSERT INTO telefono VALUES (1,)
+INSERT INTO tipo_telefono VALUES (1,)
+INSERT INTO telefono_cliente VALUES (1,)
+
