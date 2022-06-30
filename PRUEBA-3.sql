@@ -256,34 +256,34 @@ ALTER TABLE futuro_afiliado ADD CONSTRAINT futuro_afiliado_estado_civil_id_FK FO
 ALTER TABLE aseguradora_empresa ADD CONSTRAINT aseguradora_empresa_empresa_id_FK FOREIGN KEY (empresa_id_empresa) REFERENCES empresa (id_empresa);
 ALTER TABLE aseguradora_empresa ADD CONSTRAINT aseguradora_empresa_aseguradora_id_FK FOREIGN KEY (aseguradora_id_aseguradora) REFERENCES aseguradora (id_aseguradora);
 
-ALTER SESSION SET NLS_DATE_FORMAT= 'DD/MM/YYYY'
-INSERT INTO solicitud_ingreso VALUES (1,'03/04/2021');
+ALTER SESSION SET NLS_DATE_FORMAT= 'DD/MM/YYYY';
+INSERT INTO solicitud_ingreso VALUES (1,'03/04/2021','1','1');
 INSERT INTO region VALUES (1, 'METROPOLITANA DE SANTIAGO');
-INSERT INTO provincia VALUES (1, 'MAGALLANES')
+INSERT INTO provincia VALUES (1, 'MAGALLANES');
 INSERT INTO comuna VALUES (1, 'LA FLORIDA');
-INSERT INTO nacionalidad VALUES (1,'CHILENA/O');
-INSERT INTO discapacidad VALUES ('')
-INSERT INTO tipo_discapacidad
+INSERT INTO nacionalidad VALUES (1,'CHILENA/O','si');
+INSERT INTO discapacidad VALUES ('');
+INSERT INTO tipo_discapacidad VALUES (1,'ceguera');
 INSERT INTO vehiculo VALUES (1,'CHEVROLET', 'CAMARO', '1234','AZUL', 'AUTO', '1111','11111','01');
 INSERT INTO tipo_pago VALUES (1,'EFECTIVO');
 INSERT INTO banco VALUES (1, 'BANCO ESTADO', '');
 INSERT INTO forma_pago VALUES (1, 'PAGO INICIAL')
-INSERT INTO pagos VALUES ('001', '07/04/2021', 'SALDADO', '', 1 , 2, 1,'01');
-INSERT INTO afiliados VALUES ('01', '0000', 'Alan', '', 'Brito', '', '07/04/1990', '$2000', 'calle siempre viva #1234', 'M', '', 'alan@b.cl', 'curriculum here', '0909', 1, 1, 1 )
-INSERT INTO cheque VALUES (1, 1, 'banco de chile')
-INSERT INTO estado_civil VALUES (1, 'soltero xd')
-INSERT INTO tipo_parentesco VALUES (1, 'hijo')
-INSERT INTO futuro_afiliado VALUES (1, '')
-INSERT INTO estado_postulacion VALUES (1,)
-INSERT INTO sindicato VALUES (1,)
-INSERT INTO empresa VALUES (1,)
-INSERT INTO aseguradora VALUES (1,)
-INSERT INTO aseguradora_empresa VALUES (1,)
-INSERT INTO tipo_transporte VALUES (1,)
-INSERT INTO descuento VALUES (1,)
-INSERT INTO tipo_beneficio VALUES (1,)
-INSERT INTO beneficio VALUES (1,)
-INSERT INTO telefono VALUES (1,)
-INSERT INTO tipo_telefono VALUES (1,)
-INSERT INTO telefono_cliente VALUES (1,)
+INSERT INTO pagos VALUES (1, '07/04/2021', 'SALDADO', '', 1 , 2, 1,'01');
+INSERT INTO afiliados VALUES ('01', '0000', 'Alan', '', 'Brito', '', '07/04/1990', '$2000', 'calle siempre viva #1234', 'M', '', 'alan@b.cl', 'curriculum here', '0909', 1, 1, 1 );
+INSERT INTO cheque VALUES (1, 1, 'banco de chile');
+INSERT INTO estado_civil VALUES (1, 'soltero xd');
+INSERT INTO tipo_parentesco VALUES (1, 'hijo');
+INSERT INTO futuro_afiliado VALUES (1, 'benja', 'manuel', 'sepulveda', 'fica', '12/12/2002', 'hermano');
+INSERT INTO estado_postulacion VALUES (1, '12/12/2012', '33252502-0');
+INSERT INTO sindicato VALUES (1, 'SINTACT' ,'av.la florida 1010', );
+INSERT INTO empresa VALUES (1,'chile actores','av.la florida 1010');
+INSERT INTO aseguradora VALUES (1, 'tu vehiculo en buenas manos','av.la florida 1010','12345678-9');
+INSERT INTO aseguradora_empresa VALUES (1,'tu vehiculo en buenas manos');
+INSERT INTO tipo_transporte VALUES (1,'terrestre');
+INSERT INTO descuento VALUES (1,'des.por aereo');
+INSERT INTO tipo_beneficio VALUES (1,'transporte');
+INSERT INTO beneficio VALUES (1,'transporte');
+INSERT INTO telefono VALUES (1,'33252502');
+INSERT INTO tipo_telefono VALUES (1,'android');
+INSERT INTO telefono_cliente VALUES (1,1,1);
 
