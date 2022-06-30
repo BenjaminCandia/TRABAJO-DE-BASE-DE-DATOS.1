@@ -25,7 +25,7 @@ CREATE TABLE nacionalidad(
 );
 
 CREATE TABLE tipo_discapacidad(
-    id_tipo_discapacidad    NUMBER NOT NULL,
+    id_tipo_de_discapacidad NUMBER NOT NULL,
     nombre                  VARCHAR2(250) NOT NULL
 );
 
@@ -154,7 +154,7 @@ CREATE TABLE aseguradora(
     rut                         VARCHAR2(250) NOT NULL
 );
 CREATE TABLE aseguradora_empresa(
-    id_aseguradora          NUMBER NOT NULL,
+    id_aseguradora_empresa  NUMBER NOT NULL,
     nombre                  VARCHAR2(250) NOT NULL,
     direccion               VARCHAR2(250) NOT NULL
 );
@@ -179,16 +179,23 @@ CREATE TABLE tipo_transporte(
 );
 
 CREATE TABLE beneficio(
-    id_beneficio                                    NUMBER NOT NULL,
-    nombre                                          VARCHAR2(250) NOT NULL,
-    descuento_id_descuentos                         NUMBER NOT NULL,
-    tipo_beneficio_id_tipo_beneficio                NUMBER NOT NULL,
-    afiliados_id_afiliado                           NUMBER NOT NULL
+    id_beneficio                            NUMBER NOT NULL,
+    nombre                                  VARCHAR2(250) NOT NULL,
+    descuento_id_descuentos                 NUMBER NOT NULL,
+    tipo_beneficio_id_tipo_beneficio        NUMBER NOT NULL,
+    afiliados_id_afiliado                   NUMBER NOT NULL
 );
 
 CREATE TABLE tipo_beneficio(
     id_tipo_beneficio           NUMBER NOT NULL,
     nombre                      VARCHAR2(250) NOT NULL                 
+);
+
+CREATE TABLE descuento(
+    id_descuentos                       NUMBER NOT NULL, 
+    nombre                              VARCHAR2(250) NOT NULL,
+    porcentaje                          VARCHAR2(250) NOT NULL,
+    tipo_transporte_id_tipo_transporte  NUMBER NOT NULL
 );
 ALTER TABLE afiliados ADD CONSTRAINT afiliados_PK PRIMARY KEY (id_afiliado);
 ALTER TABLE pagos ADD CONSTRAINT pagos_PK PRIMARY KEY (id_pagos);
@@ -216,5 +223,5 @@ ALTER TABLE region ADD CONSTRAINT region_PK PRIMARY KEY (id_region);
 ALTER TABLE solicitud_ingreso ADD CONSTRAINT solicitud_ingreso_PK PRIMARY KEY (id_solicitud);
 ALTER TABLE estado_postulacion ADD CONSTRAINT estado_postulacion_PK PRIMARY KEY (id_postulacion);
 ALTER TABLE futuro_afiliado ADD CONSTRAINT futuro_afiliado_PK PRIMARY KEY (id_futuro_afiliado);
-ALTER TABLE tipo_patentesco ADD CONSTRAINT tipo_patentesco_PK PRIMARY KEY (id_tipo_parentesco);
+ALTER TABLE tipo_parentesco ADD CONSTRAINT tipo_parentesco_PK PRIMARY KEY (id_tipo_parentesco);
 ALTER TABLE estado_civil ADD CONSTRAINT estado_civil_PK PRIMARY KEY (id_estado_civil);
