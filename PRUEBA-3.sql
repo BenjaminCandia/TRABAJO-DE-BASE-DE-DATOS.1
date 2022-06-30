@@ -259,6 +259,7 @@ ALTER TABLE aseguradora_empresa ADD CONSTRAINT aseguradora_empresa_aseguradora_i
 ALTER SESSION SET NLS_DATE_FORMAT= 'DD/MM/YYYY'
 INSERT INTO solicitud_ingreso VALUES (1,'03/04/2021');
 INSERT INTO solicitud_ingreso VALUES (2,'07/09/2022');
+SELECT * FROM solicitud_ingreso;
 INSERT INTO region VALUES (1, 'METROPOLITANA DE SANTIAGO');
 INSERT INTO region VALUES (2, 'ARICA Y PARINACOTA');
 INSERT INTO region VALUES (3, 'TARAPACA');
